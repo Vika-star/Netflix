@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react';
 
 
 const Menu = ({ titles, open }) => {
-  
+
   return (
-    <div className={style.menu__body} open={open} >
+    <div className={open ? style.menu__body : `${style.menu__body} ${style._active}`} open={open} >
       <ul className={style.menu__list} >
         {
           titles.map((titleItem) => <li key={titleItem.name}><a href={titleItem.link} className={style.menu__link} >{titleItem.name}</a></li>)
@@ -20,7 +20,7 @@ const Menu = ({ titles, open }) => {
 
 const BurgerMenu = ({ open, setOpen }) => {
   return (
-    <div className={style.icon_menu} open={open} onClick={() => setOpen(!open)}>
+    <div className={open ? style.icon_menu : `${style.icon_menu} ${style._active}`} open={open} onClick={() => setOpen(!open)}>
       <span></span>
       <span></span>
       <span></span>
@@ -34,17 +34,13 @@ const Header = () => {
   const titlesMenu = [{ name: "Popular", link: "#popularSection" },
   { name: "Netflix Original", link: "#netflixSection" }]
 
-  handleClick = ()=>{
-
-  }
-
 
   return (
     <header className={style.header}>
       <div className={`${style.header__container} ${style._container}`}>
 
         <div className={style.header__menu}>
-          <BurgerMenu open={open} setOpen={setOpen} onClick={() => handleClick()} />
+          <BurgerMenu open={open} setOpen={setOpen} />
           <Menu titles={titlesMenu} open={open} setOpen={setOpen} />
         </div>
 
