@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const Menu = ({ titles, open }) => {
 
   return (
-    <div className={open ? style.menu__body : `${style.menu__body} ${style._active}`} open={open} >
+    <div className={open ? `${style.menu__body} ${style._active}`: style.menu__body} open={open} >
       <ul className={style.menu__list} >
         {
           titles.map((titleItem) => <li key={titleItem.name}><a href={titleItem.link} className={style.menu__link} >{titleItem.name}</a></li>)
@@ -19,16 +19,19 @@ const Menu = ({ titles, open }) => {
 }
 
 const BurgerMenu = ({ open, setOpen }) => {
+
   return (
-    <div className={open ? style.icon_menu : `${style.icon_menu} ${style._active}`} open={open} onClick={() => setOpen(!open)}>
+    <div className={open ? `${style.icon_menu} ${style._active}` : style.icon_menu} open={open} onClick={() => setOpen(!open)}>
       <span></span>
       <span></span>
       <span></span>
     </div>
   );
+
 }
 
 const Header = () => {
+
   const [open, setOpen] = useState(false);
 
   const titlesMenu = [{ name: "Popular", link: "#popularSection" },
