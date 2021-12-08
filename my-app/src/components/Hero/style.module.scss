@@ -1,0 +1,118 @@
+._container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    padding: 156px 0 0 0;
+    // background-image: url("../../icons/bg-hero-section.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    &__container {
+        width: 100%;
+    }
+}
+
+.contentTitle {
+    margin: 0 0 81px 0;
+    &__seriesBlock {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        line-height: 113.91%;
+        letter-spacing: 0.585em;
+        text-transform: uppercase;
+        svg {
+            margin: 0 15.31px 0 0;
+        }
+    }
+    &__title {
+        margin: 32px 0;
+        font-size: 144px;
+        line-height: 113.91%;
+        letter-spacing: 0.2em;
+    }
+}
+
+.descriptionMovie {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 113.91%;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    &__year {
+        margin: 0 23px 0 0;
+    }
+    &__old {
+        margin: 0 27px 0 0;
+        border: 1px solid #ffffff;
+        padding: 2px 9px;
+        font-size: 9px;
+        line-height: 113.91%;
+    }
+    &__countSeason {
+        margin: 0 18px 0 0;
+        font-size: 18px;
+        line-height: 113.91%;
+        letter-spacing: 0.2em;
+    }
+    &__quality {
+        margin: 0 17px 0 0;
+        border: 1px solid #ffffff;
+        padding: 2px 9px;
+        font-size: 9px;
+        line-height: 113.91%;
+    }
+}
+button{
+    border: 0px;
+}
+.addInfo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    &__button{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(0deg, rgba(6, 6, 6, 0.3), rgba(6, 6, 6, 0.3)), rgba(6, 6, 6, 0.3);
+        border-radius: 8px;
+        margin: 0 0 0 16px;
+        transition: all 0.3s ease-in-out;
+        &:focus{
+            background: rgba(255, 0, 33, 0.8);
+        }
+        &:hover{
+            background: rgba(255, 0, 33, 0.6);
+        }
+    }
+    &__old {
+        font-size: 36px;
+        line-height: 113.91%;
+        background: rgba(196, 196, 196, 0.44);
+        padding: 8px 88px 16px 19px;
+        margin: 0 0 0 16px;
+    }
+    &__old_before {
+        margin: 0 0 0 36px;
+        width: 12px;
+        background: rgba(255, 0, 33, 0.6);
+        height: 64.68px;
+    }
+}
+
+
+.swiper_container{
+    max-width: 708px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 57px;
+}

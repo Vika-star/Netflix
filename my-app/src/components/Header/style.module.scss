@@ -3,6 +3,8 @@
     margin: 0 auto;
 }
 .header {
+    position: absolute;
+    width: 100%;
     padding: 57px 0 0 0;
     height: auto;
     &__container {
@@ -23,6 +25,7 @@
         max-width: 250px;
         width: 100%;
         transform: translateX(0%);
+        position: fixed;
     }
     &__body {
         height: 100%;
@@ -32,7 +35,7 @@
         justify-content: center;
         background-color: #ffffff;
         transform: translateX(-100%);
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         transition: transform 0.3s ease-in-out;
