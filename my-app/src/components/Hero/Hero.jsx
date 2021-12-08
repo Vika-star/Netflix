@@ -10,16 +10,17 @@ import axios from 'axios';
 const Hero = ({ movies }) => {
     const [showInfo, setShowInfo] = useState(false);
 
-    const [movieDescription, setMovieDescription] = useState(null);
-
     const getRandomMovie = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
         console.log("random get")
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+    const [randomMovie] = useState(movies[getRandomMovie(0, movies.length - 1)]);
 
-    const randomMovie = movies[getRandomMovie(0, movies.length - 1)];
+    const [movieDescription, setMovieDescription] = useState(null);
+
+
 
 
     useEffect(()=>{
