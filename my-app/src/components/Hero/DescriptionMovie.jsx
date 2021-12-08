@@ -4,11 +4,12 @@ import Preview from '../../icons/logoPreview.png';
 import { ReactComponent as AdSvg } from '../../icons/ad.svg';
 
 
-const DescriptionMovie = () => {
+const DescriptionMovie = (randomMovie) => {
+    
     return (
         <div className={style.descriptionMovie}>
             <div className={style.descriptionMovie__year}>
-                2020
+                {``}
             </div>
             <div className={style.descriptionMovie__old}>
                 16+

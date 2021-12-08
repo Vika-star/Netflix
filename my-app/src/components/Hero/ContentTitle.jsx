@@ -3,7 +3,7 @@ import style from './style.module.scss';
 import Preview from '../../icons/logoPreview.png';
 import DescriptionMovie from './DescriptionMovie' 
 
-const ContentTitle = ({movies}) => {
+const ContentTitle = ({randomMovie}) => {
     return (
         <div className={style.contentTitle}>
             <div className={style.contentTitle__seriesBlock}>
@@ -11,10 +11,11 @@ const ContentTitle = ({movies}) => {
                 SERIES
             </div>
             <div className={style.contentTitle__title}>
-                Lucifer
-                {/* {movies[0].title} */}
+                {randomMovie.title}
             </div>
-            <DescriptionMovie />
+            <DescriptionMovie 
+            // randomMovie={randomMovie} 
+            />
         </div>
     )
 }
