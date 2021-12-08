@@ -12,6 +12,7 @@ import axios from 'axios';
 const App = () => {
 
     const [movies, setMovies] = useState([]);
+    const [randomMovie, setRandomMovie] = useState(null);
 
     // const [showPopup, setShowPopup] = useState(false);
 
@@ -19,31 +20,39 @@ const App = () => {
 
     // }, [showPopup]);
 
+    const getRandomBack = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     useEffect(() => {
         const fetchMoviesData = async () => {
             const moviesData = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`);
             setMovies(moviesData.data.results);
+            setRandomMovie(moviesData.data.results[getRandomBack(0, moviesData.data.results-1)]);
         }
         fetchMoviesData();
+
     },[]);
 
-    console.log(movies);
 
+
+    // const movieBackground = movies[getRandomBack(0, movies.length - 1)];
+    // console.log(movieBackground);
+    
     return (
+        
         <div className={style.app}>
+            {console.log("render")}
             <div className={style.app__wrapper}>
                 <div className={style.app__page}>
                     <Header />
-                    <Hero movies={movies} />
+                    <Hero movies={movies}
+                    randomMovie={randomMovie} 
+                    // movieBackground={movieBackground}
+                    />
                 </div>
-                {/* <div style={{
-                    // backgroundImage: `url("https://image.tmdb.org/t/p/original/bxU79lpl8ZQAVJ72155kqWkuqMu.jpg")`,
-                    backgroundImage: `url("https://image.tmdb.org/t/p/original/lNyLSOKMMeUPr1RsL4KcRuIXwHt.jpg")`,
-                    height: `800px`,
-                    backgroundSize: `cover`,
-                    backgroundPosition: `center center`
-                }}>
-                </div> */}
                 {
                     // showPopup && <Header/>
                 }
