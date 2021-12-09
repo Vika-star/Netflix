@@ -4,18 +4,17 @@ import Preview from '../../icons/logoPreview.png';
 import { ReactComponent as AdSvg } from '../../icons/ad.svg';
 
 
-const DescriptionMovie = (randomMovie) => {
+const DescriptionMovie = ({movieDescription}) => {
     
+    // return movieDescription && (
     return (
         <div className={style.descriptionMovie}>
             <div className={style.descriptionMovie__year}>
-                {``}
-            </div>
-            <div className={style.descriptionMovie__old}>
-                16+
+            {console.log( 'release Date', typeof movieDescription.releaseDate)}
+                {movieDescription.releaseDate}
             </div>
             <div className={style.descriptionMovie__countSeason}>
-                3 season
+                Mark: {movieDescription.voteAverage}
             </div>
             <div className={style.descriptionMovie__quality}>
                 hd

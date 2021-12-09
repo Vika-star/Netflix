@@ -7,7 +7,7 @@ import { ReactComponent as DislikeSvg } from '../../icons/dislike.svg';
 import { ReactComponent as PlusSvg } from '../../icons/plus.svg';
 
 
-const AddInfo = (show) => {
+const AddInfo = ({ show, movieDescription }) => {
     return (
         <div className={style.addInfo}>
 
@@ -25,7 +25,7 @@ const AddInfo = (show) => {
             </div>
             <span className={style.addInfo__old_before}></span>
             <div className={style.addInfo__old}>
-                16+
+                {movieDescription}
             </div>
         </div>
     );

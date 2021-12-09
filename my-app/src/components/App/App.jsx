@@ -33,7 +33,6 @@ const App = () => {
     return movies &&(
         
         <div className={style.app}>
-            {console.log("render")}
             <div className={style.app__wrapper}>
                 <div className={style.app__page}>
                     <Header />
