@@ -43,11 +43,16 @@ const Hero = ({ movies }) => {
                 <ContentTitle
                     movieDescription={movieDescription}
                 />
-                <div className={style.swiper_container}>
-                    <div className={style.swiper_container__title}>
-                        Popular Movie
+                <div className={style.hero__content}>
+                    <div className={style.swiper_container}>
+                        <div className={style.swiper_container__title}>
+                            Popular Movies
+                        </div>
+                        <SwiperMovie movies={movies} />
                     </div>
-                    <SwiperMovie movies={movies} />
+                    <div className={style.hero__movieOverview}>
+                        {movieDescription.overview}
+                    </div>
                 </div>
             </div>
             <AddInfo showInfo={showInfo} setShowInfo={setShowInfo} movieDescription={movieDescription.voteAverage} />
