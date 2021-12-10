@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 
-const Movies = ({ title, moviesEndpoint }) => {
+const Movies = ({ title, moviesEndpoint, setShowPopup}) => {
     const [movies, setMovies] = useState(null);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const Movies = ({ title, moviesEndpoint }) => {
                 <div className={style.movies__content}>
                     {
                         Array.from(movies).map((movie, index) =>
-                            <Movie key={index} movie={movie} />)
+                            <Movie key={index} movie={movie} setShowPopup={setShowPopup}/>)
                     }
                 </div>
             </div>
