@@ -9,17 +9,13 @@ const MoviePopUp = ({ popupData, setShowPopup }) => {
     useEffect(() => {
         const fetchMovieData = async () => {
             const movieData = await axios.get(`https://api.themoviedb.org/3/movie/${popupData.movieId}?api_key=${process.env.REACT_APP_API_KEY}`);
+            const movieKey = await axios.get(`https://api.themoviedb.org/3/movie/${popupData.movieId}/videos?api_key=${process.env.REACT_APP_API_KEY}`);
+            movieData.data.key = movieKey.data.results[0].key;
             setMovie(movieData.data);
-            //     {
-            //     title: moviesData.data.title,
-            //     genres: moviesData.data.genres,
-            //     originalLanguage:moviesData.data.original_language,
-            //     overview: moviesData.data.overview,
-            //     productionCompanies: moviesData
-            // }
         }
         fetchMovieData();
     }, []);
+
 
     return movie && (
         <div className={style.popup} onClick={setShowPopup}>
@@ -28,11 +24,14 @@ const MoviePopUp = ({ popupData, setShowPopup }) => {
                     {movie.title}
                 </div>
                 <div className={style.popup__text}>
-                    {Array.from(movie.genres).map((genre, index)=> {
+                    {Array.from(movie.genres).map((genre, index) => {
                         return (<div key={index} className={style.popup__item}>
                             {genre.name}
                         </div>)
                     })}
+                </div>
+                <div>
+                    <iframe width="560" height="315" src={`https://www.youtube.com/embed/${movie.key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
