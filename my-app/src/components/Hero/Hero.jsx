@@ -21,9 +21,8 @@ const Hero = ({ movies }) => {
 
     useEffect(() => {
         const fetchMovieDescription = async () => {
-            console.log("randomMovie", randomMovie.id);
             const randomMovieData = await axios.get(`https://api.themoviedb.org/3/movie/${randomMovie.id}?api_key=${process.env.REACT_APP_API_KEY}`);
-            console.log("randomMovieData", randomMovieData.data.id);
+
             setMovieDescription({
                 id: randomMovieData.data.id,
                 title: randomMovieData.data.title,

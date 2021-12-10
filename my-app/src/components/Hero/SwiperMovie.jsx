@@ -11,26 +11,29 @@ import { useState } from 'react';
 
 SwiperCore.use([Pagination, EffectCoverflow, Autoplay]);
 
+const ActiveDescription = ({ swiperIndex, movie, index }) => {
+  
+  if (swiperIndex == index) {
+    return (
+      <div className={style.swiper_container__description}>
+        <div className={style.swiper_container__description_line}></div>
+        <div className={style.swiper_container__description__date}>
+          Relase Date:
+        </div>
+        <div className={style.swiper_container__description_additional}>
+          {(movie.release_date).replace(/-/g, ' ')}
+        </div>
+      </div>
+    )
+  }
+
+  return <div></div>;
+}
 
 const SwiperMovie = ({ movies }) => {
 
   const [swiperIndex, setSwiperIndex] = useState(0);
 
-  const getActiveDescription = (movie, index) => {
-    if (swiperIndex == index) {
-      return (
-        <div className={style.swiper_container__description}>
-          <div className={style.swiper_container__description_line}></div>
-          <div className={style.swiper_container__description__date}>
-            Relase Date:
-          </div>
-          <div className={style.swiper_container__description_additional}>
-            {(movie.release_date).replace(/-/g, ' ')}
-          </div>
-        </div>
-      )
-    }
-  }
   return (
     <Swiper className={style.swiper_container}
       autoplay={{ delay: 3000 }}
@@ -54,7 +57,7 @@ const SwiperMovie = ({ movies }) => {
           return (
             <SwiperSlide key={index}>
               <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" />
-              {getActiveDescription(movie, index)}
+              <ActiveDescription swiperIndex={swiperIndex} movie={movie} index={index} />
             </SwiperSlide>)
         })
       }

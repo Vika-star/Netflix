@@ -12,9 +12,7 @@ const ContentTitle = ({movieDescription}) => {
             </div>
             <div className={style.contentTitle__title}>
                 {movieDescription.title}
-                {/* {movieDescription.releaseDate}  */}
             </div>
-            {console.log("content title",movieDescription.releaseDate)}
             <DescriptionMovie 
             movieDescription={movieDescription} 
             />

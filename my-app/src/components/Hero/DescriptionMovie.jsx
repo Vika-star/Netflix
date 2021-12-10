@@ -10,7 +10,6 @@ const DescriptionMovie = ({ movieDescription }) => {
     return (
         <div className={style.descriptionMovie}>
             <div className={style.descriptionMovie__year}>
-                {console.log('release Date', typeof movieDescription.releaseDate)}
                 {movieDescription.releaseDate}
             </div>
             <div className={style.descriptionMovie__quality}>
