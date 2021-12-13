@@ -2,6 +2,7 @@ import style from './style.module.scss';
 import Movie from './Movie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import MoviesSwiper from './MoviesSwiper';
 
 
 
@@ -22,12 +23,15 @@ const Movies = ({ title, moviesEndpoint, setShowPopup}) => {
                 <div className={style.movies__title}>
                     {title}
                 </div>
-                <div className={style.movies__content}>
+                <div className={style.movies__swiper}>
+                    <MoviesSwiper movies={movies} setShowPopup={setShowPopup}></MoviesSwiper>
+                </div>
+                {/* <div className={style.movies__content}>
                     {
                         Array.from(movies).map((movie, index) =>
                             <Movie key={index} movie={movie} setShowPopup={setShowPopup}/>)
                     }
-                </div>
+                </div> */}
             </div>
         </div>
     );

@@ -13,7 +13,7 @@ SwiperCore.use([Pagination, EffectCoverflow, Autoplay]);
 
 const ActiveDescription = ({ swiperIndex, movie, index }) => {
   
-  if (swiperIndex == index) {
+  if (swiperIndex === index) {
     return (
       <div className={style.swiper_container__description}>
         <div className={style.swiper_container__description_line}></div>
