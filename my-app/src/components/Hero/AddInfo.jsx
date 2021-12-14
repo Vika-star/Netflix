@@ -7,7 +7,7 @@ import { ReactComponent as DislikeSvg } from '../../icons/dislike.svg';
 import { ReactComponent as PlusSvg } from '../../icons/plus.svg';
 
 
-const AddInfo = ({ show, movieDescription }) => {
+const AddInfo = ({movieDescription }) => {
     return (
         <div className={style.addInfo}>
 

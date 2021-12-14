@@ -8,7 +8,6 @@ import axios from 'axios';
 
 
 const Hero = ({ movies }) => {
-    const [showInfo, setShowInfo] = useState(false);
 
     const getRandomMovie = (min, max) => {
         min = Math.ceil(min);
@@ -54,7 +53,7 @@ const Hero = ({ movies }) => {
                     </div>
                 </div>
             </div>
-            <AddInfo showInfo={showInfo} setShowInfo={setShowInfo} movieDescription={movieDescription.voteAverage} />
+            <AddInfo movieDescription={movieDescription.voteAverage} />
 
         </div>
 

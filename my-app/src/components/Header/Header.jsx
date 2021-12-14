@@ -28,9 +28,7 @@ const Header = () => {
         </div>
 
         <div className={style.header__logo}>
-          {/* <a href="../../../public/index.html"> */}
           <LogoSvg />
-          {/* </a> */}
         </div>
 
         <div className={style.header__search}>
