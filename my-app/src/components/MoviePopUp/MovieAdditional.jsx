@@ -6,8 +6,10 @@ const MovieAdditional = ({ movie }) => {
                 <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" />
             </div>
             <div className={style.additional__trailer}>
-                <iframe src={`https://www.youtube.com/embed/${movie.key}`} title="YouTube video player" 
-                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                {movie.key &&
+                    <iframe src={`https://www.youtube.com/embed/${movie.key}`} title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                }
             </div>
         </div>
     )
