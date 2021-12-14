@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import style from './style.module.scss';
 import { ReactComponent as CloseSvg } from '../../icons/close.svg';
 
 import MovieDescription from './MovieDescription';
 import MovieAdditional from './MovieAdditional';
 import fetchMovieDataInPopup from '../../moviesApi/fetchMovieDataInPopup';
+import PopupContext from '../Context/PopupContext';
 
-const MoviePopUp = ({ popupData, setShowPopup }) => {
-
+const MoviePopUp = () => {
+    const popupData= useContext(PopupContext.popup);
+    const setShowPopup = useContext(PopupContext.setShowPopup);
     const [movie, setMovie] = useState(null);
 
     useEffect(() => {
