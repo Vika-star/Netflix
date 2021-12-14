@@ -8,8 +8,7 @@ import fetchMovieDataInPopup from '../../moviesApi/fetchMovieDataInPopup';
 import PopupContext from '../Context/PopupContext';
 
 const MoviePopUp = () => {
-    const popupData= useContext(PopupContext.popup);
-    const setShowPopup = useContext(PopupContext.setShowPopup);
+    const {popupData, setShowPopup} = useContext(PopupContext);
     const [movie, setMovie] = useState(null);
 
     useEffect(() => {

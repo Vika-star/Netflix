@@ -1,12 +1,9 @@
 import style from './style.module.scss';
-
-import Preview from '../../icons/logoPreview.png';
 import { ReactComponent as AdSvg } from '../../icons/ad.svg';
 
 
 const DescriptionMovie = ({ movieDescription }) => {
 
-    // return movieDescription && (
     return (
         <div className={style.descriptionMovie}>
             <div className={style.descriptionMovie__year}>

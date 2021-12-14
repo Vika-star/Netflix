@@ -27,28 +27,27 @@ const App = () => {
     return (
         allMovies.length <= 0 ? <Preloader /> :
             <PopularMoviesContext.Provider value={allMovies[0]}>
-                <PopupContext.Preloader value={{popup: popup, setShowPopup: setShowPopup}}>
 
-                    <div className={style.app}>
-                        <div className={style.app__wrapper}>
-                            <div className={style.app__page}>
+                <div className={style.app}>
+                    <div className={style.app__wrapper}>
+                        <div className={style.app__page}>
 
-                                <Header />
-                                <Hero />
-                                {
-                                    allMovies.map((movies, index) =>
-                                        <Movies key={index} title={moviesCategories[index].title} movies={movies} setShowPopup={getMovieData} />)
-                                }
-                            </div>
-
+                            <Header />
+                            <Hero />
+                            {
+                                allMovies.map((movies, index) =>
+                                    <Movies key={index} title={moviesCategories[index].title} movies={movies} setShowPopup={getMovieData} />)
+                            }
+                        </div>
+                        <PopupContext.Preloader value={{ popup, getMovieData }}>
                             {
                                 // popup.show && <MoviePopUp popupData={popup} setShowPopup={getMovieData}></MoviePopUp>
                                 popup.show && <MoviePopUp ></MoviePopUp>
                             }
 
-                        </div>
+                        </PopupContext.Preloader>
                     </div>
-                </PopupContext.Preloader>
+                </div>
             </PopularMoviesContext.Provider>
     )
 }

@@ -1,5 +1,4 @@
 import style from './style.module.scss';
-// import classNames from 'classnames';
 
 import { ReactComponent as InfoSvg } from '../../icons/info.svg';
 import { ReactComponent as LikeSvg } from '../../icons/like.svg';
