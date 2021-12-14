@@ -1,21 +1,19 @@
+import Movie from './Movie'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import style from './style.module.scss';
+import Pagination from 'swiper';
 import SwiperCore, { Autoplay } from "swiper";
-import { useState } from 'react';
+
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
-import Movie from './Movie'
+import style from './style.module.scss';
 
 
 SwiperCore.use([Pagination, Autoplay]);
 
 
 const MoviesSwiper = ({ movies, setShowPopup }) => {
-
-    const [swiperIndex, setSwiperIndex] = useState(0);
 
     return (
         <Swiper className={style.swiper_container}

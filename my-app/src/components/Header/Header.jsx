@@ -1,6 +1,6 @@
 import { ReactComponent as LogoSvg } from '../../icons/logoNetflix.svg';
 import { ReactComponent as SearchSvg } from '../../icons/searchIcon.svg';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import style from './style.module.scss';
 
 import Menu from './Menu';
@@ -16,7 +16,6 @@ const Header = () => {
 
   const titlesMenu = [{ name: "Popular", link: "#popularSection" },
   { name: "Netflix Original", link: "#netflixSection" }]
-
 
   return (
     <header className={style.header}>

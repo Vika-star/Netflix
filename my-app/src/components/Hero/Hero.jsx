@@ -1,37 +1,27 @@
-import style from './style.module.scss';
+import { useContext, useEffect, useState } from 'react';
 import ContentTitle from './ContentTitle';
 import AddInfo from './AddInfo';
 import SwiperMovie from './SwiperMovie'
-import { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import PopularMoviesContext from '../Context/AllMoviesContext'
+import fetchMovieDescription from '../../moviesApi/fetchMovieDescrition'
+import style from './style.module.scss';
 
-import PopularMoviesContext from '../App/PopularMoviesContext'
 
+const getRandomMovie = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 const Hero = () => {
     const movies = useContext(PopularMoviesContext);
-    const getRandomMovie = (min, max) => {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    
     const [randomMovie] = useState(movies[getRandomMovie(0, movies.length - 1)]);
 
     const [movieDescription, setMovieDescription] = useState(null);
 
     useEffect(() => {
-        const fetchMovieDescription = async () => {
-            const randomMovieData = await axios.get(`https://api.themoviedb.org/3/movie/${randomMovie.id}?api_key=${process.env.REACT_APP_API_KEY}`);
-
-            setMovieDescription({
-                id: randomMovieData.data.id,
-                title: randomMovieData.data.title,
-                releaseDate: (randomMovieData.data.release_date).replace(/-/g, ' '),
-                overview: randomMovieData.data.overview,
-                voteAverage: randomMovieData.data.vote_average
-            });
-        }
-        fetchMovieDescription();
+        fetchMovieDescription(randomMovie, setMovieDescription);
     }, [])
 
     return movieDescription && (

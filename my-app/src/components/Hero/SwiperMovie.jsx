@@ -1,34 +1,18 @@
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import style from './style.module.scss';
+import Pagination from 'swiper';
+import SwiperCore, { Autoplay, EffectCoverflow } from "swiper";
+
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
 import "swiper/components/effect-coverflow/effect-coverflow.scss";
-import SwiperCore, { Autoplay, EffectCoverflow } from "swiper";
-import { useState } from 'react';
+import style from './style.module.scss';
+import ActiveDescription from './ActiveDescription.jsx';
 
 SwiperCore.use([Pagination, EffectCoverflow, Autoplay]);
 
-const ActiveDescription = ({ swiperIndex, movie, index }) => {
-  
-  if (swiperIndex === index) {
-    return (
-      <div className={style.swiper_container__description}>
-        <div className={style.swiper_container__description_line}></div>
-        <div className={style.swiper_container__description__date}>
-          Relase Date:
-        </div>
-        <div className={style.swiper_container__description_additional}>
-          {(movie.release_date).replace(/-/g, ' ')}
-        </div>
-      </div>
-    )
-  }
-
-  return <div></div>;
-}
 
 const SwiperMovie = ({ movies }) => {
 
