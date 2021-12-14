@@ -6,16 +6,17 @@ import MoviesSwiper from './MoviesSwiper';
 
 
 
-const Movies = ({ title, moviesEndpoint, setShowPopup}) => {
-    const [movies, setMovies] = useState(null);
+// const Movies = ({ title, moviesEndpoint, setShowPopup}) => {
+const Movies = ({ title, movies, setShowPopup}) => {
+    // const [movies, setMovies] = useState(null);
 
-    useEffect(() => {
-        const fetchMovies = async () => {
-            const movieData = await axios.get(`https://api.themoviedb.org/3/movie/${moviesEndpoint}?api_key=${process.env.REACT_APP_API_KEY}`)
-            setMovies(movieData.data.results);
-        }
-        fetchMovies();
-    }, []);
+    // useEffect(() => {
+    //     const fetchMovies = async () => {
+    //         const movieData = await axios.get(`https://api.themoviedb.org/3/movie/${moviesEndpoint}?api_key=${process.env.REACT_APP_API_KEY}`)
+    //         setMovies(movieData.data.results);
+    //     }
+    //     fetchMovies();
+    // }, []);
 
     return movies && (
         <div className={style.movies}>

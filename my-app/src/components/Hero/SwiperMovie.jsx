@@ -62,9 +62,6 @@ const SwiperMovie = ({ movies }) => {
         })
       }
     </Swiper>
-
-
-
   );
 };
 

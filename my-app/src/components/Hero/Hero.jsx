@@ -2,13 +2,14 @@ import style from './style.module.scss';
 import ContentTitle from './ContentTitle';
 import AddInfo from './AddInfo';
 import SwiperMovie from './SwiperMovie'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
+import PopularMoviesContext from '../App/PopularMoviesContext'
 
 
-const Hero = ({ movies }) => {
-
+const Hero = () => {
+    const movies = useContext(PopularMoviesContext);
     const getRandomMovie = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
