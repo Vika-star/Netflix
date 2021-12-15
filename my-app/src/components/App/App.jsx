@@ -11,8 +11,10 @@ import Preloader from "../Preloader/Preloader";
 import { fetchMoviesData, moviesCategories } from "../../moviesApi/fetchMoviesData";
 import PopupContext from "../Context/PopupContext";
 
+
 const App = () => {
 
+    
     const [allMovies, setAllMovies] = useState([]);
 
     const [popup, setPopup] = useState({ show: false, movieId: '' });
@@ -25,15 +27,25 @@ const App = () => {
         fetchMoviesData(setAllMovies);
     }, []);
 
+
     return (
         allMovies.length <= 0 ? <Preloader /> :
             <AllMoviesContext.Provider value={allMovies[0]}>
-                <PopupContext.Provider value={[popup, setPopup]}>
+
+                    <PopupContext.Provider value={[popup, setPopup]}>
 
                         {console.log('popup', popup)}
                         {console.log('setPopup', setPopup)}
 
                         <div className={style.app}>
+                            {/* <PopupContextt.Consumer>
+                                {
+                                    ({ openedPopup, setOpenedPopup }) => {
+                                        console.log(openedPopup);
+                                        return <button onClick={setOpenedPopup}>clcik me</button>
+                                    }
+                                }
+                            </PopupContextt.Consumer> */}
                             <div className={style.app__wrapper}>
                                 <div className={style.app__page}>
 
@@ -52,8 +64,8 @@ const App = () => {
                             </div>
                         </div>
 
-                </PopupContext.Provider>
-            </AllMoviesContext.Provider>
+                    </PopupContext.Provider>
+            </AllMoviesContext.Provider >
     )
 }
 
