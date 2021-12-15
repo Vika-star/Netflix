@@ -4,9 +4,12 @@ import { ReactComponent as InfoSvg } from '../../icons/info.svg';
 import { ReactComponent as LikeSvg } from '../../icons/like.svg';
 import { ReactComponent as DislikeSvg } from '../../icons/dislike.svg';
 import { ReactComponent as PlusSvg } from '../../icons/plus.svg';
+import { useContext } from 'react';
+import HeroMovieDescriptiomContext from '../Context/HeroMovieDescriptionContext';
 
 
-const AddInfo = ({movieDescription }) => {
+const AddInfo = () => {
+    const movieDescription = useContext(HeroMovieDescriptiomContext);
     return (
         <div className={style.addInfo}>
 
@@ -24,7 +27,7 @@ const AddInfo = ({movieDescription }) => {
             </div>
             <span className={style.addInfo__old_before}></span>
             <div className={style.addInfo__old}>
-                {movieDescription}
+                {movieDescription.voteAverage}
             </div>
         </div>
     );

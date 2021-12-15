@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from 'react';
 import ContentTitle from './ContentTitle';
 import AddInfo from './AddInfo';
 import SwiperMovie from './SwiperMovie'
-import PopularMoviesContext from '../Context/AllMoviesContext'
+import AllMoviesContext from '../Context/AllMoviesContext'
 import fetchMovieDescription from '../../moviesApi/fetchMovieDescrition'
 import style from './style.module.scss';
+import HeroMovieDescriptiomContext from '../Context/HeroMovieDescriptionContext';
 
 
 const getRandomMovie = (min, max) => {
@@ -14,39 +15,40 @@ const getRandomMovie = (min, max) => {
 }
 
 const Hero = () => {
-    const movies = useContext(PopularMoviesContext);
-    
+    const movies = useContext(AllMoviesContext);
+
     const [randomMovie] = useState(movies[getRandomMovie(0, movies.length - 1)]);
 
-    const [movieDescription, setMovieDescription] = useState(null);
+    const [movieDescription, setMovieDescription] = useState([]);
 
     useEffect(() => {
         fetchMovieDescription(randomMovie, setMovieDescription);
     }, [])
 
     return movieDescription && (
-        <div className={style.hero} style={{
-            backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 76.78%), url(https://image.tmdb.org/t/p/original${randomMovie.backdrop_path})`
-        }}>
-            <div className={`${style.hero__container} ${style._container}`}>
-                <ContentTitle
-                    movieDescription={movieDescription}
-                />
-                <div className={style.hero__content}>
-                    <div className={style.swiper_container}>
-                        <div className={style.swiper_container__title}>
-                            Popular Movies
+        <HeroMovieDescriptiomContext.Provider value={movieDescription}>
+
+            <div className={style.hero} style={{
+                backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 76.78%), url(https://image.tmdb.org/t/p/original${randomMovie.backdrop_path})`
+            }}>
+                <div className={`${style.hero__container} ${style._container}`}>
+                    <ContentTitle/>
+                    <div className={style.hero__content}>
+                        <div className={style.swiper_container}>
+                            <div className={style.swiper_container__title}>
+                                Popular Movies
+                            </div>
+                            <SwiperMovie />
                         </div>
-                        <SwiperMovie movies={movies} />
-                    </div>
-                    <div className={style.hero__movieOverview}>
-                        {movieDescription.overview}
+                        <div className={style.hero__movieOverview}>
+                            {movieDescription.overview}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <AddInfo movieDescription={movieDescription.voteAverage} />
+                <AddInfo/>
 
-        </div>
+            </div>
+        </HeroMovieDescriptiomContext.Provider>
 
     )
 }

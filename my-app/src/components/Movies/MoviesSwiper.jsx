@@ -33,7 +33,7 @@ const MoviesSwiper = ({ movies, setShowPopup }) => {
             }}
         >
             {
-                Array.from(movies).map((movie, index) =>
+                movies.map((movie, index) =>
                     <SwiperSlide key={index}>
                         <Movie movie={movie} setShowPopup={setShowPopup}></Movie>
                     </SwiperSlide>

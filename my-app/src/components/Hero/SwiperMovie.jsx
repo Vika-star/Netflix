@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Pagination from 'swiper';
 import SwiperCore, { Autoplay, EffectCoverflow } from "swiper";
@@ -10,13 +10,15 @@ import "swiper/components/pagination/pagination.scss";
 import "swiper/components/effect-coverflow/effect-coverflow.scss";
 import style from './style.module.scss';
 import ActiveDescription from './ActiveDescription.jsx';
+import AllMoviesContext from '../Context/AllMoviesContext';
 
 SwiperCore.use([Pagination, EffectCoverflow, Autoplay]);
 
 
-const SwiperMovie = ({ movies }) => {
+const SwiperMovie = () => {
 
   const [swiperIndex, setSwiperIndex] = useState(0);
+  const movies =useContext(AllMoviesContext);
 
   return (
     <Swiper className={style.swiper_container}
@@ -37,7 +39,7 @@ const SwiperMovie = ({ movies }) => {
       onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
     >
       {
-        Array.from(movies).map((movie, index) => {
+        movies.map((movie, index) => {
           return (
             <SwiperSlide key={index}>
               <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" />

@@ -1,5 +1,5 @@
 import React from "react";
 
-const PopularMoviesContext = React.createContext();
+const AllMoviesContext = React.createContext();
 
-export default PopularMoviesContext;
+export default AllMoviesContext;

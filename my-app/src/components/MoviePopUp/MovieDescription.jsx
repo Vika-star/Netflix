@@ -1,6 +1,11 @@
+import { useContext } from 'react';
+import PopupMovieDescriptionContext from '../Context/PopupMovieDescriptionContext';
 import style from './style.module.scss'
 
-const MovieDescription = ({ movie }) => {
+const MovieDescription = () => {
+
+    const movie = useContext(PopupMovieDescriptionContext);
+
     return (
         <div>
             <div className={style.popup__title}>
@@ -20,7 +25,7 @@ const MovieDescription = ({ movie }) => {
             </div>
             <div className={style.popup__text}>
                 Genres:
-                {Array.from(movie.genres).map((genre, index) => {
+                {(movie.genres).map((genre, index) => {
                     return (<div key={index} className={style.popup__textInfo}>
                         {genre.name}
                     </div>)
@@ -28,7 +33,7 @@ const MovieDescription = ({ movie }) => {
             </div>
             <div className={style.popup__text}>
             Production Countries:
-                {Array.from(movie.production_countries).map((country, index) => {
+                {(movie.production_countries).map((country, index) => {
                     return (<div key={index} className={style.popup__textInfo}>
                         {country.name}
                     </div>)

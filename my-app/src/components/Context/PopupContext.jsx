@@ -1,8 +1,5 @@
 import React from "react";
 
-const PopupContext = React.createContext({popup:{
-    show: false, movieId: ''},
-    setShowPopup: () => {}
-});
+const PopupContext = React.createContext([]);
 
 export default PopupContext;
