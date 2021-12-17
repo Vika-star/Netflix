@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import PopupMovieDescriptionContext from '../Context/PopupMovieDescriptionContext';
 import style from './style.module.scss'
 
-const MovieDescription = () => {
+const MovieDescription = ({movie}) => {
 
-    const movie = useContext(PopupMovieDescriptionContext);
+    // const movie = useContext(PopupMovieDescriptionContext);
 
     return (
         <div>

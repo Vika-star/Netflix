@@ -9,29 +9,29 @@ import PopupContext from '../Context/PopupContext';
 import PopupMovieDescriptionContext from '../Context/PopupMovieDescriptionContext';
 
 const MoviePopUp = () => {
-    const [popupData, setShowPopup] = useContext(PopupContext);
-    console.log(popupData);
+    const popupData = useContext(PopupContext);
     const [movie, setMovie] = useState(null);
-
+    
     useEffect(() => {
+        console.log("popupData",popupData);
         fetchMovieDataInPopup(popupData, setMovie);
     }, []);
-
+    
 
     return movie && (
-        <PopupMovieDescriptionContext.Provider value={movie}>
+        // <PopupMovieDescriptionContext.Provider value={movie}>
             <div className={style.popup}>
                 <div className={style.popup__content}>
-                    <div className={style.popup__close}><CloseSvg onClick={setShowPopup} /></div>
+                    <div className={style.popup__close}><CloseSvg onClick={popupData.setPopup} /></div>
                     <div className={style.popup__left}>
-                        <MovieAdditional/>
+                        <MovieAdditional movie={movie}/>
                     </div>
                     <div className={style.popup__right}>
-                        <MovieDescription />
+                        <MovieDescription movie={movie}/>
                     </div>
                 </div>
             </div>
-        </PopupMovieDescriptionContext.Provider>
+        // </PopupMovieDescriptionContext.Provider>
     )
 }
 

@@ -14,57 +14,42 @@ import PopupContext from "../Context/PopupContext";
 
 const App = () => {
 
-    
+
     const [allMovies, setAllMovies] = useState([]);
 
-    const [popup, setPopup] = useState({ show: false, movieId: '' });
+    const [popup, setPopupOpen] = useState({ popupOpen: false, movieId: '' });
 
-    const getMovieData = useCallback((movieId) => {
-        setPopup({ show: !popup.show, movieId: movieId });
+    const setPopup = useCallback((movieId) => {
+        console.log("movieId",movieId);
+        setPopupOpen({ popupOpen: !popup.popupOpen, movieId: movieId });
     }, [popup]);
 
     useEffect(() => {
         fetchMoviesData(setAllMovies);
     }, []);
-
-
+    
     return (
         allMovies.length <= 0 ? <Preloader /> :
             <AllMoviesContext.Provider value={allMovies[0]}>
-
-                    <PopupContext.Provider value={[popup, setPopup]}>
-
-                        {console.log('popup', popup)}
-                        {console.log('setPopup', setPopup)}
-
-                        <div className={style.app}>
-                            {/* <PopupContextt.Consumer>
+                <PopupContext.Provider value={{popup, setPopup}}>
+                    
+                    <div className={style.app}>
+                        <div className={style.app__wrapper}>
+                            <div className={style.app__page}>
+                                <Header />
+                                <Hero />
                                 {
-                                    ({ openedPopup, setOpenedPopup }) => {
-                                        console.log(openedPopup);
-                                        return <button onClick={setOpenedPopup}>clcik me</button>
-                                    }
+                                    allMovies.map((movies, index) =>
+                                        <Movies key={index} title={moviesCategories[index].title} movies={movies} setShowPopup={setPopup} />)
                                 }
-                            </PopupContextt.Consumer> */}
-                            <div className={style.app__wrapper}>
-                                <div className={style.app__page}>
-
-                                    <Header />
-                                    <Hero />
-                                    {
-                                        allMovies.map((movies, index) =>
-                                            <Movies key={index} title={moviesCategories[index].title} movies={movies} setShowPopup={getMovieData} />)
-                                    }
-                                </div>
-
-                                {
-                                    popup.show && <MoviePopUp />
-                                }
-
                             </div>
+                            {
+                                popup.popupOpen && <MoviePopUp />
+                            }
                         </div>
+                    </div>
 
-                    </PopupContext.Provider>
+                </PopupContext.Provider>
             </AllMoviesContext.Provider >
     )
 }
