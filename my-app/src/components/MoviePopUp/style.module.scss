@@ -37,6 +37,11 @@
         margin: 0 0 15px 0;
         font-size: 62px;
         line-height: 113.91%;
+
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
     &__textInfoSmall {
         align-items: baseline;
@@ -51,6 +56,10 @@
         display: flex;
         font-size: 20px;
         margin: 0 0 0 20px;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
     &__content {
         background: rgba(13, 18, 21, 0.7);
@@ -90,4 +99,76 @@
             aspect-ratio: 3/2;
         }
     }
+}
+
+@media (max-width: 992px) {
+    .additional {
+        max-width: 260px;
+        width: 100%;
+        min-width: 180px;
+        &__poster {
+            margin: 0 0 15px 0;
+        }
+    }
+    .popup {
+        &__right {
+            margin-left: 20px;
+        }
+    }
+}
+@media (max-width: 870px) {
+    .popup {
+        &__textSmall {
+            margin: 0 0 40px 0;
+        }
+        &__text {
+            max-width: 800px;
+            width: 100%;
+            align-items: baseline;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 0 20px 0;
+            font-size: 18px;
+        }
+        &__title {
+            margin: 0 0 20px 0;
+            font-size: 38px;
+        }
+        &__textInfoSmall {
+            align-items: baseline;
+            display: flex;
+            font-size: 14px;
+            margin: 0 0 0 20px;
+            color: #fff;
+        }
+        &__textInfo {
+            font-size: 16px;
+            margin: 0 0 0 18px;
+        }
+    }
+}
+
+@media (max-width:540px) {
+    .popup {
+        &__content{
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            align-items: center;
+            padding: 70px 50px;
+        }
+        &__close {
+            svg{
+                width: 32px;
+                height: 32px;
+            }
+            top: 30px;
+            right: 30px;
+            position: absolute;
+        }
+    }
+    .additional{
+        margin: 0 0 50px 0;
+    }
+    
 }

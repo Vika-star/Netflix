@@ -3,7 +3,7 @@ import MoviesSwiper from './MoviesSwiper';
 
 
 
-const Movies = ({ title, movies, setShowPopup}) => {
+const Movies = ({ title, movies}) => {
 
     return movies && (
         <div className={style.movies}>
@@ -12,7 +12,7 @@ const Movies = ({ title, movies, setShowPopup}) => {
                     {title}
                 </div>
                 <div className={style.movies__swiper}>
-                    <MoviesSwiper movies={movies} setShowPopup={setShowPopup}></MoviesSwiper>
+                    <MoviesSwiper movies={movies}></MoviesSwiper>
                 </div>
             </div>
         </div>

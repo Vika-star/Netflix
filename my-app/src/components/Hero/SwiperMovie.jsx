@@ -30,11 +30,29 @@ const SwiperMovie = () => {
       slidesPerView={3}
       loop="true"
       coverflowEffect={{
-        rotate: 20,
+        rotate: 10,
         stretch: 25,
-        depth: 250,
+        depth: 350,
         modifier: 1,
         slideShadows: false,
+      }}
+      breakpoints={{
+        700: {
+          spaceBetween: 0,
+          slidesPerView: 3,
+        },
+        500: {
+          spaceBetween: 50,
+          slidesPerView: 2.5,
+        },
+        400:{
+          spaceBetween: 0,
+          slidesPerView: 2,  
+        },
+        300: {
+          spaceBetween: 0,
+          slidesPerView: 1,
+        },
       }}
       onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
     >

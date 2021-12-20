@@ -13,7 +13,7 @@ import style from './style.module.scss';
 SwiperCore.use([Pagination, Autoplay]);
 
 
-const MoviesSwiper = ({ movies, setShowPopup }) => {
+const MoviesSwiper = ({ movies }) => {
 
     return (
         <Swiper className={style.swiper_container}
@@ -24,18 +24,33 @@ const MoviesSwiper = ({ movies, setShowPopup }) => {
             spaceBetween={0}
             slidesPerView={2.5}
             loop="true"
-            coverflowEffect={{
-                rotate: 20,
-                stretch: 25,
-                depth: 250,
-                modifier: 1,
-                slideShadows: false,
-            }}
+            breakpoints={{
+                992: {
+                  spaceBetween: 0,
+                  slidesPerView: 2.5,
+                },
+                750: {
+                  spaceBetween: 80,
+                  slidesPerView: 2,
+                },
+                580: {
+                  spaceBetween: 50,
+                  slidesPerView: 1.5,
+                },
+                400: {
+                  spaceBetween: 10,
+                  slidesPerView: 1,
+                },
+                300: {
+                  spaceBetween: 0,
+                  slidesPerView: 1,
+                },
+              }}
         >
             {
                 movies.map((movie, index) =>
                     <SwiperSlide key={index}>
-                        <Movie movie={movie} setShowPopup={setShowPopup}></Movie>
+                        <Movie movie={movie}></Movie>
                     </SwiperSlide>
                 )
             }

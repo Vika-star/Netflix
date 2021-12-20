@@ -6,7 +6,6 @@ import MovieDescription from './MovieDescription';
 import MovieAdditional from './MovieAdditional';
 import fetchMovieDataInPopup from '../../moviesApi/fetchMovieDataInPopup';
 import PopupContext from '../Context/PopupContext';
-import PopupMovieDescriptionContext from '../Context/PopupMovieDescriptionContext';
 
 const MoviePopUp = () => {
     const popupData = useContext(PopupContext);
@@ -19,7 +18,6 @@ const MoviePopUp = () => {
     
 
     return movie && (
-        // <PopupMovieDescriptionContext.Provider value={movie}>
             <div className={style.popup}>
                 <div className={style.popup__content}>
                     <div className={style.popup__close}><CloseSvg onClick={popupData.setPopup} /></div>
@@ -31,7 +29,6 @@ const MoviePopUp = () => {
                     </div>
                 </div>
             </div>
-        // </PopupMovieDescriptionContext.Provider>
     )
 }
 
