@@ -20,7 +20,6 @@ const App = () => {
     const [popup, setPopupOpen] = useState({ popupOpen: false, movieId: '' });
 
     const setPopup = useCallback((movieId) => {
-        console.log("movieId",movieId);
         setPopupOpen({ popupOpen: !popup.popupOpen, movieId: movieId });
     }, [popup]);
 

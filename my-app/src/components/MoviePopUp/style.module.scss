@@ -72,9 +72,11 @@
         top: 50%;
         transform: translate(-50%, -50%);
 
-        display: flex;
-        // align-items: center;
         padding: 50px;
+    }
+    &__contentAdd{
+        
+        display: flex;
     }
 }
 
@@ -151,11 +153,13 @@
 @media (max-width:540px) {
     .popup {
         &__content{
+            padding: 70px 50px;
+        }
+        &__contentAdd{
             flex-direction: column;
             overflow-y: auto;
             overflow-x: hidden;
             align-items: center;
-            padding: 70px 50px;
         }
         &__close {
             svg{

@@ -1,8 +1,6 @@
 import style from './style.module.scss';
 import MoviesSwiper from './MoviesSwiper';
 
-
-
 const Movies = ({ title, movies}) => {
 
     return movies && (

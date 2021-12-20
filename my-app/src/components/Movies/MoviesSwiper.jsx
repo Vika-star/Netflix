@@ -9,7 +9,6 @@ import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
 import style from './style.module.scss';
 
-
 SwiperCore.use([Pagination, Autoplay]);
 
 
@@ -55,9 +54,6 @@ const MoviesSwiper = ({ movies }) => {
                 )
             }
         </Swiper>
-
-
-
     );
 };
 
