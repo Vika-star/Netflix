@@ -1,0 +1,14 @@
+._container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.app {
+    &__wrapper {
+        min-height: 100%;
+        overflow: hidden;
+    }
+    &__page{
+        flex: 1 1 auto;
+    }
+}

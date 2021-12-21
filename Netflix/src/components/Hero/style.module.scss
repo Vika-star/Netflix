@@ -1,0 +1,224 @@
+._container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.hero {
+    padding: 156px 0 0 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    &__container {
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+    }
+    &__movieOverview {
+        margin: 0 0 0 59px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+        color: rgba(255, 255, 255, 0.67);
+    }
+}
+
+.contentTitle {
+    margin: 0 0 81px 0;
+    &__seriesBlock {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        line-height: 113.91%;
+        letter-spacing: 0.585em;
+        text-transform: uppercase;
+        img {
+            margin: 0 15.31px 0 0;
+        }
+    }
+    &__title {
+        margin: 32px 0;
+        font-size: 144px;
+        line-height: 113.91%;
+        letter-spacing: 10px;
+    }
+}
+
+.descriptionMovie {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 113.91%;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    &__year {
+        margin: 0 23px 0 0;
+    }
+    &__old {
+        margin: 0 27px 0 0;
+        border: 1px solid #ffffff;
+        padding: 2px 9px;
+        font-size: 9px;
+        line-height: 113.91%;
+    }
+    &__countSeason {
+        margin: 0 18px 0 0;
+        font-size: 18px;
+        line-height: 113.91%;
+        letter-spacing: 0.2em;
+    }
+    &__quality {
+        margin: 0 17px 0 0;
+        border: 1px solid #ffffff;
+        padding: 2px 9px;
+        font-size: 9px;
+        line-height: 113.91%;
+    }
+}
+button {
+    border: 0px;
+}
+.addInfo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 0 76px 0;
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(0deg, rgba(6, 6, 6, 0.3), rgba(6, 6, 6, 0.3)), rgba(6, 6, 6, 0.3);
+        border-radius: 8px;
+        margin: 0 0 0 16px;
+        transition: all 0.3s ease-in-out;
+        &:focus {
+            background: rgba(255, 0, 33, 0.8);
+        }
+        &:hover {
+            background: rgba(255, 0, 33, 0.6);
+        }
+    }
+    &__old {
+        font-size: 36px;
+        line-height: 113.91%;
+        background: rgba(196, 196, 196, 0.44);
+        padding: 8px 88px 16px 19px;
+        margin: 0 0 0 16px;
+    }
+    &__old_before {
+        margin: 0 0 0 36px;
+        width: 12px;
+        background: rgba(255, 0, 33, 0.6);
+        height: 64.68px;
+    }
+}
+
+.swiper_container {
+    height: 500px;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    &__title {
+        font-size: 18px;
+        line-height: 113.91%;
+        letter-spacing: 0.2em;
+        margin-bottom: 30px;
+    }
+    &__description {
+        margin-top: 20px;
+        font-size: 12px;
+        line-height: 113.91%;
+        letter-spacing: 5px;
+    }
+    &__description__date {
+        margin: 0 0 10px 0;
+    }
+    &__description_additional {
+        font-size: 10px;
+    }
+    &__description_line {
+        content: " ";
+        width: 200px;
+        height: 1px;
+        border-radius: 50%;
+        background: linear-gradient(90deg, #d5011d 0%, #c4c4c4 100%);
+        margin-bottom: 15px;
+    }
+}
+
+.swiper_container .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.swiper_container .swiper-pagination-bullet {
+    color: red;
+}
+
+@media (max-width: 992px) {
+    .hero {
+        &__content {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+        &__movieOverview {
+            margin: 0 0 59px 0px;
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    ._container {
+        padding: 0 20px;
+    }
+    .contentTitle {
+        margin: 0 0 50px 0;
+        &__seriesBlock {
+            font-size: 20px;
+            img {
+                margin: 0 15.31px 0 0;
+            }
+        }
+        &__title {
+            margin: 32px 0;
+            font-size: 100px;
+            line-height: 113.91%;
+            letter-spacing: 10px;
+        }
+    }
+
+    .descriptionMovie {
+        font-size: 16px;
+        &__countSeason {
+            font-size: 16px;
+        }
+    }
+
+    .swiper_container {
+        &__title {
+            font-size: 24px;
+        }
+    }
+}
+@media (max-width: 500px) {
+    .addInfo {
+        display: none;
+    } 
+    .contentTitle {
+        &__title {
+            font-size: 72px;
+        }
+    }   
+}

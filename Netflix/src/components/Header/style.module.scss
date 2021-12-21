@@ -1,0 +1,124 @@
+._container {
+    max-width: 1200px;
+    margin: 0 auto;
+    @media (max-width: 1200px) {
+        padding: 0 30px;
+    }
+}
+.header {
+    position: absolute;
+    width: 100%;
+    padding: 57px 0 0 0;
+    height: auto;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__logo {
+    }
+    &__menu {
+        z-index: 4;
+    }
+    &__search {
+    }
+}
+
+.menu {
+    &__body._active{
+        max-width: 250px;
+        width: 100%;
+        transform: translateX(0%);
+        position: fixed;
+    }
+    &__body {
+        height: 100%;
+        padding: 0 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #ffffff;
+        transform: translateX(-100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+        @media (max-width: 500px) {
+            width: 100%;
+        }
+        transform: translateX(-100%);
+    }
+    &__list {
+        padding: 0;
+        li {
+            margin: 0 0 20px 0;
+        }
+        li:last-child {
+            margin: 0;
+        }
+    }
+    &__link {
+        color: #0d1215;
+        font-size: 36px;
+        line-height: 113.91%;
+        transition: color 0.24s linear;
+        &:hover {
+            color: #d5011d;
+        }
+    }
+}
+.icon_menu {
+    z-index: 5;
+    display: block;
+    position: relative;
+    width: 31px;
+    height: 20px;
+    cursor: pointer;
+    transform: translateX(0);
+    transition: all 0.7s ease-in-out;
+    span,
+    &::before,
+    &::after {
+        left: 0;
+        position: absolute;
+        height: 2px;
+        transition: all 0.3s ease-in-out;
+        background-color: #fff;
+    }
+    span{
+        top:50%;
+        width: 21px;
+    }
+    &::before,
+    &::after {
+        width: 100%;
+        content: "";
+    }
+    &::before {
+        top: 0;
+    }
+    &::after {
+        bottom: 0;
+    }
+}
+.icon_menu._active {
+   transform: translateX(100px);
+   transition: all 0.5s ease-in-out;
+    span {
+        top: 50%;
+        transform-origin: center center;
+        transform: scale(0) translate(0px, -50px);
+    }
+    &::before {
+        top: 50%;
+        transform-origin: center center;
+        transform: rotate(-45deg) translate(0px, -50%);
+        background-color: #000;
+    }
+    &::after {
+        transform-origin: center center;
+        bottom: 50%;
+        transform: rotate(45deg) translate(0px, 50%);
+        background-color: #000;
+    }
+}
+   
